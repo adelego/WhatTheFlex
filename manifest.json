@@ -1,0 +1,7 @@
+{
+  "name": "What The Flex",
+  "id": "802489040231651179",
+  "api": "1.0.0",
+  "main": "dist/code.js",
+  "ui": "dist/ui.html"
+}
