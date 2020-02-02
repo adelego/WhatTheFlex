@@ -12,7 +12,7 @@ interface Props {
 const Rectangle: React.FC<Props> = (props: Props) => {
     const children: JSX.Element[] = []
     for (let i = 0; i < props.nbChildren; i++) {
-        children.push(<div className="child"/>)
+        children.push(<div className="child" key={i}/>)
     }
 
     const style = {
