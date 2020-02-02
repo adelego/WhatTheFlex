@@ -1,0 +1,13 @@
+.rectangle {
+  background-color: #56ccf2;
+  border-radius: 4px;
+  display: flex;
+}
+
+.child {
+  background-color: #2f80ed;
+  border-radius: 4px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
