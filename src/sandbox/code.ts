@@ -9,6 +9,7 @@ if (!currentNode || 'FRAME' !== currentNode.type) {
     figma.closePlugin('Please select a frame')
 } else {
     const previousStrokeStyle = highlightCurrentNode(currentNode);
+    const size: Size = getNodeSize(currentNode);
 }
 
 
