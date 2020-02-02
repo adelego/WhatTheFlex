@@ -1,10 +1,12 @@
 import * as React from 'react'
 import "./Parent.css"
+import { Direction } from '../Form/Form'
 
 interface Props {
     width: number,
     height: number,
-    nbChildren: number
+    nbChildren: number,
+    direction: Direction
 }
 
 const Rectangle: React.FC<Props> = (props: Props) => {
@@ -13,8 +15,14 @@ const Rectangle: React.FC<Props> = (props: Props) => {
         children.push(<div className="child"/>)
     }
 
+    const style = {
+        width: props.width, 
+        height: props.height,
+        flexDirection: props.direction
+    } as React.CSSProperties
+
     return (
-        <div style={{width: props.width, height: props.height}} className='rectangle' >
+        <div style={style} className='rectangle' >
             {children}
         </div>
     )
