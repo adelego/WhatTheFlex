@@ -15,5 +15,8 @@ if (!currentNode || 'FRAME' !== currentNode.type) {
     })
 
     const size: Size = getNodeSize(currentNode);
+    figma.ui.postMessage({
+        type: 'currentNodeSize',
+        size
+    })
 }
-
