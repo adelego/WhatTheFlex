@@ -1,4 +1,5 @@
 import * as React from "react";
+import copy from 'clipboard-copy'
 import "./Form.css";
 import {
   Direction,
@@ -13,11 +14,14 @@ import {
 interface Props {
   nbChildren: number;
   flexProperties: FlexProperties;
+  cssString: string;
   onNbSquareSelect: (nbSquares: number) => void;
   setFlexProperties: (flexProperties: FlexProperties) => void
 }
 
 const Form: React.FC<Props> = (props: Props) => {
+  const [copied, setCopied] = React.useState(false);
+
   const onNbSelect = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     props.onNbSquareSelect(parseInt(e.target.value));
@@ -25,6 +29,7 @@ const Form: React.FC<Props> = (props: Props) => {
 
   const onDirectionSelect = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     e.preventDefault();
+    setCopied(false)
     const direction = e.target.value as Direction;
       props.setFlexProperties({
         ...props.flexProperties,
@@ -37,6 +42,7 @@ const Form: React.FC<Props> = (props: Props) => {
     e: React.ChangeEvent<HTMLSelectElement>
   ): void => {
     e.preventDefault();
+    setCopied(false)
     const justifyContent = e.target.value as JusitfyContent;
     props.setFlexProperties({
       ...props.flexProperties,
@@ -48,12 +54,20 @@ const Form: React.FC<Props> = (props: Props) => {
     e: React.ChangeEvent<HTMLSelectElement>
   ): void => {
     e.preventDefault();
+    setCopied(false)
     const alignItems = e.target.value as AlignItems;
     props.setFlexProperties({
       ...props.flexProperties,
       alignItems
     })
   };
+
+  const onCopyButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    copy(props.cssString);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000)
+  }
 
   return (
     <div className="flexForm">
@@ -92,7 +106,7 @@ const Form: React.FC<Props> = (props: Props) => {
         </select>
       </label>
 
-      <button>Copy CSS</button>
+      <button type='button' onClick={onCopyButtonClick} disabled={copied}>{copied ? 'Copied!' : 'Copy CSS'}</button>
     </div>
   );
 };

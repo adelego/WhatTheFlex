@@ -21,8 +21,6 @@ const Rectangle: React.FC<Props> = (props: Props) => {
     height: props.height,
   }
 
-  console.log(style);
-
   return (
     <div style={style} className="rectangle">
       {children}

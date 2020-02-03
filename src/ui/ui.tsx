@@ -5,6 +5,7 @@ import Rectangle from "./Parent/Parent";
 import { Size } from "../sandbox/getNodeSize";
 import Form from "./Form/Form";
 import { FlexProperties } from "./flexTypes";
+import { getCSSStyle } from './styleToCSS'
 
 const App: React.FC = () => {
   const [rectSize, setRectSize] = React.useState<Size>({ width: 0, height: 0 });
@@ -14,6 +15,7 @@ const App: React.FC = () => {
     justifyContent: 'flex-start',
     alignItems: 'stretch'
   })
+  const [cssString, setCssString] = React.useState(getCSSStyle(flexProperties))
 
   React.useEffect(() => {
     onmessage = (event: MessageEvent) => {
@@ -23,6 +25,10 @@ const App: React.FC = () => {
       }
     };
   }, []);
+
+  React.useEffect(() => {
+    setCssString(getCSSStyle(flexProperties))
+  }, [flexProperties])
 
   return (
     <div className="container">
@@ -37,6 +43,7 @@ const App: React.FC = () => {
         nbChildren={nbChildren}
         flexProperties={flexProperties}
         setFlexProperties={setFlexProperties}
+        cssString={cssString}
       />
     </div>
   );
