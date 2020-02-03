@@ -4,16 +4,16 @@ import "./ui.css";
 import Rectangle from "./Parent/Parent";
 import { Size } from "../sandbox/getNodeSize";
 import Form from "./Form/Form";
-import { Direction, JusitfyContent, AlignItems } from "./flexTypes";
+import { FlexProperties } from "./flexTypes";
 
 const App: React.FC = () => {
   const [rectSize, setRectSize] = React.useState<Size>({ width: 0, height: 0 });
   const [nbChildren, setNbChildren] = React.useState(0);
-  const [direction, setDirection] = React.useState<Direction>("row");
-  const [justifyContent, setJustifyContent] = React.useState<JusitfyContent>(
-    "flex-start"
-  );
-  const [alignItems, setAlignItems] = React.useState<AlignItems>("stretch");
+  const [flexProperties, setFlexProperties] = React.useState<FlexProperties>({
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch'
+  })
 
   React.useEffect(() => {
     onmessage = (event: MessageEvent) => {
@@ -30,19 +30,13 @@ const App: React.FC = () => {
         width={rectSize.width}
         height={rectSize.height}
         nbChildren={nbChildren}
-        direction={direction}
-        justifyContent={justifyContent}
-        alignItems={alignItems}
+        flexProperties={flexProperties}
       />
       <Form
         onNbSquareSelect={setNbChildren}
         nbChildren={nbChildren}
-        onDirectionSelect={setDirection}
-        direction={direction}
-        justifyContent={justifyContent}
-        onJustifyContentSelect={setJustifyContent}
-        alignItems={alignItems}
-        onAlignItemsSelect={setAlignItems}
+        flexProperties={flexProperties}
+        setFlexProperties={setFlexProperties}
       />
     </div>
   );

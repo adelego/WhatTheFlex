@@ -1,14 +1,12 @@
 import * as React from "react";
 import "./Parent.css";
-import { Direction, JusitfyContent, AlignItems } from "../flexTypes";
+import { FlexProperties } from "../flexTypes";
 
 interface Props {
   width: number;
   height: number;
   nbChildren: number;
-  direction: Direction;
-  justifyContent: JusitfyContent;
-  alignItems: AlignItems;
+  flexProperties: FlexProperties
 }
 
 const Rectangle: React.FC<Props> = (props: Props) => {
@@ -18,12 +16,10 @@ const Rectangle: React.FC<Props> = (props: Props) => {
   }
 
   const style = {
+    ...props.flexProperties,
     width: props.width,
     height: props.height,
-    flexDirection: props.direction,
-    justifyContent: props.justifyContent,
-    alignItems: props.alignItems
-  } as React.CSSProperties;
+  }
 
   console.log(style);
 

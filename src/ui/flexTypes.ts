@@ -52,3 +52,10 @@ export const alignItemArray: AlignItems[] = [
   "self-start",
   "self-end"
 ];
+
+
+export interface FlexProperties {
+  flexDirection: Direction;
+  justifyContent: JusitfyContent;
+  alignItems: AlignItems
+}
