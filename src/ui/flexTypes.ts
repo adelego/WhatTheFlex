@@ -25,3 +25,30 @@ export const justifyContentArray: JusitfyContent[] = [
   "left",
   "right"
 ];
+
+export type AlignItems =
+  | "stretch"
+  | "flex-start"
+  | "flex-end"
+  | "center"
+  | "baseline"
+  | "first baseline"
+  | "last baseline"
+  | "start"
+  | "end"
+  | "self-start"
+  | "self-end";
+
+export const alignItemArray: AlignItems[] = [
+  "stretch",
+  "flex-start",
+  "flex-end",
+  "center",
+  "baseline",
+  "first baseline",
+  "last baseline",
+  "start",
+  "end",
+  "self-start",
+  "self-end"
+];

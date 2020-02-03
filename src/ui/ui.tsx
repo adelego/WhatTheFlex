@@ -4,7 +4,7 @@ import "./ui.css";
 import Rectangle from "./Parent/Parent";
 import { Size } from "../sandbox/getNodeSize";
 import Form from "./Form/Form";
-import { Direction, JusitfyContent } from "./flexTypes";
+import { Direction, JusitfyContent, AlignItems } from "./flexTypes";
 
 const App: React.FC = () => {
   const [rectSize, setRectSize] = React.useState<Size>({ width: 0, height: 0 });
@@ -13,6 +13,7 @@ const App: React.FC = () => {
   const [justifyContent, setJustifyContent] = React.useState<JusitfyContent>(
     "flex-start"
   );
+  const [alignItems, setAlignItems] = React.useState<AlignItems>("stretch");
 
   React.useEffect(() => {
     onmessage = (event: MessageEvent) => {
@@ -31,6 +32,7 @@ const App: React.FC = () => {
         nbChildren={nbChildren}
         direction={direction}
         justifyContent={justifyContent}
+        alignItems={alignItems}
       />
       <Form
         onNbSquareSelect={setNbChildren}
@@ -39,6 +41,8 @@ const App: React.FC = () => {
         direction={direction}
         justifyContent={justifyContent}
         onJustifyContentSelect={setJustifyContent}
+        alignItems={alignItems}
+        onAlignItemsSelect={setAlignItems}
       />
     </div>
   );

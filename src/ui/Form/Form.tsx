@@ -4,16 +4,20 @@ import {
   Direction,
   JusitfyContent,
   justifyContentArray,
-  directionArray
+  directionArray,
+  AlignItems,
+  alignItemArray
 } from "../flexTypes";
 
 interface Props {
   nbChildren: number;
   direction: Direction;
   justifyContent: JusitfyContent;
+  alignItems: AlignItems;
   onNbSquareSelect: (nbSquares: number) => void;
   onDirectionSelect: (direction: Direction) => void;
   onJustifyContentSelect: (justifyContent: JusitfyContent) => void;
+  onAlignItemsSelect: (alignItems: AlignItems) => void;
 }
 
 const Form: React.FC<Props> = (props: Props) => {
@@ -38,6 +42,14 @@ const Form: React.FC<Props> = (props: Props) => {
     props.onJustifyContentSelect(value);
   };
 
+  const onAlignItemsSelect = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ): void => {
+    e.preventDefault();
+    const value = e.target.value as AlignItems;
+    props.onAlignItemsSelect(value);
+  };
+
   return (
     <div className="flexForm">
       <label className="label">
@@ -58,6 +70,16 @@ const Form: React.FC<Props> = (props: Props) => {
         Jusitfy content
         <select onChange={onJustifyContentSelect} value={props.justifyContent}>
           {justifyContentArray.map((value, key) => (
+            <option key={key} value={value}>
+              {value}
+            </option>
+          ))}
+        </select>
+      </label>
+      <label className="label">
+        Align items
+        <select onChange={onAlignItemsSelect} value={props.alignItems}>
+          {alignItemArray.map((value, key) => (
             <option key={key} value={value}>
               {value}
             </option>
