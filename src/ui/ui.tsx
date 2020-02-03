@@ -23,6 +23,14 @@ const App: React.FC = () => {
       if ("currentNodeSize" === message.type) {
         setRectSize(message.size);
       }
+      if ("savedNodeProperties" === message.type) {
+        setFlexProperties({
+          flexDirection: message.properties.flexDirection,
+          justifyContent: message.properties.justifyContent,
+          alignItems: message.properties.alignItems,
+        })
+        setNbChildren(message.properties.nbChildren)
+      }
     };
   }, []);
 

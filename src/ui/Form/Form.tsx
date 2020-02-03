@@ -62,11 +62,24 @@ const Form: React.FC<Props> = (props: Props) => {
     })
   };
 
-  const onCopyButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onCopyButtonClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
     copy(props.cssString);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000)
+  }
+
+  const onSaveButtonCLick = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    e.preventDefault()
+    parent.postMessage({
+      pluginMessage: {
+        type: 'saveNodeProperties',
+        properties: {
+          ...props.flexProperties,
+          nbChildren: props.nbChildren
+        }
+      }
+    }, '*')
   }
 
   return (
@@ -107,6 +120,7 @@ const Form: React.FC<Props> = (props: Props) => {
       </label>
 
       <button type='button' onClick={onCopyButtonClick} disabled={copied}>{copied ? 'Copied!' : 'Copy CSS'}</button>
+      <button type='button' onClick={onSaveButtonCLick} >Save properties</button>
     </div>
   );
 };
