@@ -30,7 +30,7 @@ module.exports = (env, argv) => ({
       {
         test: /\.svg$/,
         issuer: /\.tsx/,
-        use: ["url-loader", "svg-react-loader"]
+        use: ["svg-react-loader"]
       }
     ]
   },

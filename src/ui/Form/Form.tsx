@@ -10,6 +10,7 @@ import {
   alignItemArray,
   FlexProperties
 } from "../flexTypes";
+import Select from "../Components/Select/Select";
 
 interface Props {
   nbChildren: number;
@@ -27,10 +28,9 @@ const Form: React.FC<Props> = (props: Props) => {
     props.onNbSquareSelect(parseInt(e.target.value));
   };
 
-  const onDirectionSelect = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    e.preventDefault();
+  const onDirectionSelect = (option: string): void => {
     setCopied(false)
-    const direction = e.target.value as Direction;
+    const direction = option as Direction;
       props.setFlexProperties({
         ...props.flexProperties,
         flexDirection: direction
@@ -39,11 +39,10 @@ const Form: React.FC<Props> = (props: Props) => {
   };
 
   const onJustifyContentSelect = (
-    e: React.ChangeEvent<HTMLSelectElement>
+    option: string
   ): void => {
-    e.preventDefault();
     setCopied(false)
-    const justifyContent = e.target.value as JusitfyContent;
+    const justifyContent = option as JusitfyContent;
     props.setFlexProperties({
       ...props.flexProperties,
       justifyContent
@@ -51,11 +50,10 @@ const Form: React.FC<Props> = (props: Props) => {
   };
 
   const onAlignItemsSelect = (
-    e: React.ChangeEvent<HTMLSelectElement>
+    option: string
   ): void => {
-    e.preventDefault();
     setCopied(false)
-    const alignItems = e.target.value as AlignItems;
+    const alignItems = option as AlignItems;
     props.setFlexProperties({
       ...props.flexProperties,
       alignItems
@@ -90,33 +88,15 @@ const Form: React.FC<Props> = (props: Props) => {
       </label>
       <label className="label">
         Flex direction
-        <select onChange={onDirectionSelect} value={props.flexProperties.flexDirection}>
-          {directionArray.map((value, key) => (
-            <option key={key} value={value}>
-              {value}
-            </option>
-          ))}
-        </select>
+        <Select options={['row', 'column']} selectedOption={props.flexProperties.flexDirection} onSelect={onDirectionSelect}/>
       </label>
       <label className="label">
         Jusitfy content
-        <select onChange={onJustifyContentSelect} value={props.flexProperties.justifyContent}>
-          {justifyContentArray.map((value, key) => (
-            <option key={key} value={value}>
-              {value}
-            </option>
-          ))}
-        </select>
+        <Select options={justifyContentArray} selectedOption={props.flexProperties.justifyContent} onSelect={onJustifyContentSelect}/>
       </label>
       <label className="label">
         Align items
-        <select onChange={onAlignItemsSelect} value={props.flexProperties.alignItems}>
-          {alignItemArray.map((value, key) => (
-            <option key={key} value={value}>
-              {value}
-            </option>
-          ))}
-        </select>
+        <Select options={alignItemArray} selectedOption={props.flexProperties.alignItems} onSelect={onAlignItemsSelect}/>
       </label>
 
       <button type='button' onClick={onCopyButtonClick} disabled={copied}>{copied ? 'Copied!' : 'Copy CSS'}</button>
