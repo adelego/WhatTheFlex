@@ -1,0 +1,28 @@
+.numberInput {
+  outline: none;
+  width: 128px;
+  height: 32px;
+  border: 1px solid transparent;
+  font-family: "Inter", sans-serif;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 8px;
+}
+
+.numberInput::-webkit-inner-spin-button,
+.numberInput::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.numberInput:hover {
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.numberInput:focus {
+  border: 2px solid #18a0fb;
+}
+
+.numberInput::selection {
+  background: rgba(24, 145, 251, 0.3);
+}

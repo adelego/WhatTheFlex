@@ -13,6 +13,9 @@
   align-items: center;
   color: rgba(0, 0, 0, 0.8);
   fill: rgba(0, 0, 0, 0.3);
+  font-size: 11px;
+  line-height: 16px;
+  padding: 8px;
 }
 
 .selectButton:hover,
@@ -58,6 +61,8 @@
   color: white;
   height: 24px;
   fill: none;
+  font-size: 12px;
+  line-height: 16px;
 }
 
 .selectOption:hover {

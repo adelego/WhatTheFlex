@@ -11,6 +11,7 @@ import {
   FlexProperties
 } from "../flexTypes";
 import Select from "../Components/Select/Select";
+import NumberInput from "../Components/NumberInput/NumberInput";
 
 interface Props {
   nbChildren: number;
@@ -22,11 +23,6 @@ interface Props {
 
 const Form: React.FC<Props> = (props: Props) => {
   const [copied, setCopied] = React.useState(false);
-
-  const onNbSelect = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    e.preventDefault();
-    props.onNbSquareSelect(parseInt(e.target.value));
-  };
 
   const onDirectionSelect = (option: string): void => {
     setCopied(false)
@@ -84,11 +80,11 @@ const Form: React.FC<Props> = (props: Props) => {
     <div className="flexForm">
       <label className="label">
         Number of children?
-        <input type="number" onChange={onNbSelect} value={props.nbChildren} />
+        <NumberInput value={props.nbChildren} onChange={props.onNbSquareSelect}/>
       </label>
       <label className="label">
         Flex direction
-        <Select options={['row', 'column']} selectedOption={props.flexProperties.flexDirection} onSelect={onDirectionSelect}/>
+        <Select options={directionArray} selectedOption={props.flexProperties.flexDirection} onSelect={onDirectionSelect}/>
       </label>
       <label className="label">
         Jusitfy content
