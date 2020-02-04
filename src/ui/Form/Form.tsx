@@ -13,6 +13,9 @@ import {
 import Select from "../Components/Select/Select";
 import NumberInput from "../Components/NumberInput/NumberInput";
 import NbChildrenIcon from './Icons/nbChildren.svg';
+import JustifyContentIcon from './Icons/justifyContent.svg';
+import AlignItemsIcon from './Icons/alignItems.svg'
+import FlexDirectionIcon from './Icons/flexDirection.svg'
 
 interface Props {
   nbChildren: number;
@@ -85,15 +88,28 @@ const Form: React.FC<Props> = (props: Props) => {
       </label>
       <label className="label">
         Flex direction
-        <Select options={directionArray} selectedOption={props.flexProperties.flexDirection} onSelect={onDirectionSelect}/>
+        <Select 
+        options={directionArray} 
+        selectedOption={props.flexProperties.flexDirection} 
+        onSelect={onDirectionSelect}
+        icon={<FlexDirectionIcon />}/>
       </label>
       <label className="label">
         Jusitfy content
-        <Select options={justifyContentArray} selectedOption={props.flexProperties.justifyContent} onSelect={onJustifyContentSelect}/>
+        <Select 
+        options={justifyContentArray} 
+        selectedOption={props.flexProperties.justifyContent} 
+        onSelect={onJustifyContentSelect}
+        icon={<JustifyContentIcon/>}/>
       </label>
       <label className="label">
         Align items
-        <Select options={alignItemArray} selectedOption={props.flexProperties.alignItems} onSelect={onAlignItemsSelect}/>
+        <Select 
+        options={alignItemArray} 
+        selectedOption={props.flexProperties.alignItems} 
+        onSelect={onAlignItemsSelect}
+        icon={<AlignItemsIcon/>}
+        />
       </label>
 
       <button type='button' onClick={onCopyButtonClick} disabled={copied}>{copied ? 'Copied!' : 'Copy CSS'}</button>

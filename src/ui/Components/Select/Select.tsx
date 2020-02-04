@@ -7,6 +7,7 @@ import { useClickOutside } from "./useClickOutside";
 interface Props {
   options: string[];
   selectedOption: string;
+  icon: JSX.Element;
   onSelect: (option: string) => void;
 }
 
@@ -32,7 +33,10 @@ const Select: React.FC<Props> = (props: Props) => {
   return (
     <div className="selectContainer" ref={selectRef}>
     <button className="selectButton" onClick={onTitleClick}>
-      <span className="selectTitle">{props.selectedOption}</span>
+      <div className='selectIconTitle'>
+        <span className='selectIcon'>{props.icon}</span>
+        <span className="selectTitle">{props.selectedOption}</span>
+      </div>
       <Caret />
     </button>
 

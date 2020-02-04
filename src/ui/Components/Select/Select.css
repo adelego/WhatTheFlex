@@ -8,14 +8,15 @@
   font-family: "Inter", sans-serif;
   border: 1px solid transparent;
   width: 100%;
-  height: 30px;
+  height: 32px;
   display: flex;
   align-items: center;
   color: rgba(0, 0, 0, 0.8);
   fill: rgba(0, 0, 0, 0.3);
   font-size: 11px;
   line-height: 16px;
-  padding: 8px;
+  padding: 0;
+  padding-right: 8px;
 }
 
 .selectButton:hover,
@@ -32,6 +33,20 @@
 .selectButton:focus {
   outline: none;
   border: 2px solid #18a0fb;
+}
+
+.selectIconTitle {
+  display: flex;
+  align-items: center;
+}
+
+.selectIcon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  fill: rgba(0, 0, 0, 0.3);
 }
 
 .selectTitle {
