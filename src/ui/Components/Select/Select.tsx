@@ -2,6 +2,7 @@ import * as React from "react";
 import "./Select.css";
 import Caret from "./caret.svg";
 import Selected from './on.svg';
+import { useClickOutside } from "./useClickOutside";
 
 interface Props {
   options: string[];
@@ -19,6 +20,9 @@ const Select: React.FC<Props> = (props: Props) => {
     }
   }
 
+  const selectRef = React.useRef(null);
+  useClickOutside(selectRef, () => {setIsOpen(false)})
+
   const onTitleClick = (e: React.MouseEvent<HTMLButtonElement>): void => {
     e.preventDefault();
     setIsOpen(true)
@@ -26,7 +30,7 @@ const Select: React.FC<Props> = (props: Props) => {
 
 
   return (
-    <div className="selectContainer">
+    <div className="selectContainer" ref={selectRef}>
     <button className="selectButton" onClick={onTitleClick}>
       <span className="selectTitle">{props.selectedOption}</span>
       <Caret />
