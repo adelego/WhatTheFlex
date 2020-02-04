@@ -4,6 +4,7 @@ import './NumberInput.css';
 interface Props {
     value: number;
     onChange: (value: number) => void
+    icon: JSX.Element;
 }
 
 const NumberInput: React.FC<Props> = (props: Props) => {
@@ -12,14 +13,18 @@ const NumberInput: React.FC<Props> = (props: Props) => {
         handleFocus(e)
         props.onChange(parseInt(e.target.value))
     } 
+    console.log(props.icon)
     const handleFocus = (event) => event.target.select();
     return (
-        <input 
+        <div className="numberInputContainer">
+            <span className='numberInputIcon'>{props.icon}</span>
+            <input 
             type='number' 
             className='numberInput' 
             onChange={onChange} 
-            onFocus={handleFocus}
-            value={props.value}/>
+            value={props.value}
+            onFocus={handleFocus}/>
+        </div>
     )
 }
 

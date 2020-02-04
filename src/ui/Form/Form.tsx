@@ -12,6 +12,7 @@ import {
 } from "../flexTypes";
 import Select from "../Components/Select/Select";
 import NumberInput from "../Components/NumberInput/NumberInput";
+import NbChildrenIcon from './Icons/nbChildren.svg';
 
 interface Props {
   nbChildren: number;
@@ -80,7 +81,7 @@ const Form: React.FC<Props> = (props: Props) => {
     <div className="flexForm">
       <label className="label">
         Number of children?
-        <NumberInput value={props.nbChildren} onChange={props.onNbSquareSelect}/>
+        <NumberInput value={props.nbChildren} onChange={props.onNbSquareSelect} icon={<NbChildrenIcon/>}/>
       </label>
       <label className="label">
         Flex direction
