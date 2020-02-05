@@ -1,46 +1,46 @@
 .numberInputContainer {
-  width: 128px;
-  height: 32px;
-  border: 1px solid transparent;
-
-  display: flex;
+	width: 128px;
+	height: 32px;
+	border: 1px solid transparent;
+	display: flex;
 }
 
 .numberInputContainer:hover {
-  border-color: rgba(0, 0, 0, 0.1);
+	border-color: rgba(0, 0, 0, 0.1);
 }
 
 .numberInputContainer:focus-within {
-  border: 1px solid #18a0fb;
-  box-shadow: 1px 1px 0px #18a0fb, -1px -1px 0px #18a0fb;
+	border: 1px solid #18a0fb;
+	box-shadow: 0 0 0 1px #18a0fb inset;
 }
 
 .numberInput {
-  outline: none;
-  font-family: "Inter", sans-serif;
-  font-size: 11px;
-  line-height: 16px;
-  border: 0px;
-  flex-grow: 1;
-  width: 100%;
+	outline: none;
+	background: none;
+	font-family: "Inter", sans-serif;
+	font-size: 11px;
+	line-height: 16px;
+	border: 0px;
+	flex-grow: 1;
+	width: 100%;
 }
 
 .numberInput::-webkit-inner-spin-button,
 .numberInput::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+	-webkit-appearance: none;
+	margin: 0;
 }
 
 .numberInput::selection {
-  background: rgba(24, 145, 251, 0.3);
+	background: rgba(24, 145, 251, 0.3);
 }
 
 .numberInputIcon {
-  fill: rgba(0, 0, 0, 0.3);
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	fill: rgba(0, 0, 0, 0.3);
+	width: 32px;
+	height: 32px;
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

@@ -1,0 +1,41 @@
+.button {
+	height: 30px;
+	padding: 0 10px;
+	font-weight: 500;
+	font-size: 11px;
+	line-height: 16px;
+	border-radius: 6px;
+}
+
+.defaultButton {
+	background-color: transparent;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	color: black;
+}
+
+.defaultButton:focus {
+	border: 1px solid #18a0fb;
+	box-shadow: 0 0 0 1px #18a0fb inset;
+	outline: none;
+}
+
+.defaultButton:disabled {
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	color: rgba(0, 0, 0, 0.3);
+}
+
+.primaryButton {
+	background: #18a0fb;
+	border: 1px solid transparent;
+	color: white;
+}
+
+.primaryButton:focus {
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3) inset;
+	outline: none;
+}
+
+.primaryButton:disabled {
+	background: rgba(0, 0, 0, 0.3);
+}
