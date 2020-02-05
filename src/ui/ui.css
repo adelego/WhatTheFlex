@@ -1,15 +1,16 @@
 @import url('https://rsms.me/inter/inter.css');
 
 body {
-  font: 12px;
-  text-align: center;
-  margin: 20px;
-  font-family: 'Inter', sans-serif;
+	font: 12px;
+	text-align: center;
+	margin: 20px;
+	font-family: 'Inter', sans-serif;
 }
 .container {
-  display: flex;
+	display: flex;
+	justify-content: space-between;
 }
 
 .container > .rectangle {
-  margin-right: 20px;
+	margin-right: 20px;
 }
