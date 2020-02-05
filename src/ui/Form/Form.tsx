@@ -18,6 +18,10 @@ import AlignItemsIcon from './Icons/alignItems.svg';
 import FlexDirectionIcon from './Icons/flexDirection.svg';
 import Button from '../Components/Button/Button';
 import FormElement from '../Components/FormElement/FormElement';
+import Switch from '../Components/Switch/Switch';
+import Column from './Icons/column.svg'
+import Row from './Icons/row.svg'
+
 
 interface Props {
 	nbChildren: number;
@@ -87,11 +91,19 @@ const Form: React.FC<Props> = (props: Props) => {
 			</FormElement>
 
 			<FormElement labelText="Flex direction" labelId="flexdirection">
-				<Select
-					options={directionArray}
-					selectedOption={props.flexProperties.flexDirection}
-					onSelect={onDirectionSelect}
-					icon={<FlexDirectionIcon />}
+				<Switch
+				selectedValue={props.flexProperties.flexDirection}
+				onSelect={onDirectionSelect}
+				options={[
+					{
+						value: 'row',
+						icon: <Row/>
+					},
+					{
+						value: 'column',
+						icon: <Column/>
+					}
+				]}
 				/>
 			</FormElement>
 
@@ -113,12 +125,14 @@ const Form: React.FC<Props> = (props: Props) => {
 				/>
 			</FormElement>
 
-			<Button onClick={onCopyButtonClick} disabled={copied} theme="default">
-				{copied ? 'Copied!' : 'Copy CSS'}
-			</Button>
-			<Button onClick={onSaveButtonCLick} theme="primary">
-				Save properties
-			</Button>
+			<div className="actions">
+				<Button onClick={onCopyButtonClick} disabled={copied} theme="default">
+					{copied ? 'Copied!' : 'Copy CSS'}
+				</Button>
+				<Button onClick={onSaveButtonCLick} theme="primary">
+					Save properties
+				</Button>
+			</div>
 		</div>
 	);
 };
