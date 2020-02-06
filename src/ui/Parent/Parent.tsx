@@ -1,31 +1,33 @@
-import * as React from "react";
-import "./Parent.css";
-import { FlexProperties } from "../flexTypes";
+import * as React from 'react';
+import './Parent.css';
+import { FlexProperties } from '../flexTypes';
 
 interface Props {
-  width: number;
-  height: number;
-  nbChildren: number;
-  flexProperties: FlexProperties
+	width: number;
+	height: number;
+	nbChildren: number;
+	flexProperties: FlexProperties;
 }
 
 const Rectangle: React.FC<Props> = (props: Props) => {
-  const children: JSX.Element[] = [];
-  for (let i = 0; i < props.nbChildren; i++) {
-    children.push(<div className="child" key={i} />);
-  }
+	const children: JSX.Element[] = [];
+	for (let i = 0; i < props.nbChildren; i++) {
+		children.push(<div className="child" key={i} />);
+	}
 
-  const style = {
-    ...props.flexProperties,
-    width: props.width,
-    height: props.height,
-  }
+	const style = {
+		...props.flexProperties,
+		width: props.width,
+		height: props.height
+	};
 
-  return (
-    <div style={style} className="rectangle">
-      {children}
-    </div>
-  );
+	return (
+		<div className="rectangleContainer">
+			<div style={style} className="rectangle">
+				{children}
+			</div>
+		</div>
+	);
 };
 
 export default Rectangle;

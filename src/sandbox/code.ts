@@ -6,6 +6,9 @@ import { onSaveNodeProperties, getSavedNodeProperties } from './saveNodeProperti
 
 figma.showUI(__html__);
 
+const UI_MIN_HEIGHT = 260;
+const UI_ADDITIONAL_WIDTH = 300;
+
 const currentNode = getCurrentNode();
 if (!currentNode || 'FRAME' !== currentNode.type) {
 	figma.closePlugin('Please select a frame');
@@ -22,7 +25,8 @@ if (!currentNode || 'FRAME' !== currentNode.type) {
 	});
 
 	const size: Size = getNodeSize(currentNode);
-	figma.ui.resize(size.width + 500, size.height + 50);
+
+	figma.ui.resize(size.width + UI_ADDITIONAL_WIDTH, Math.max(UI_MIN_HEIGHT, size.height));
 	figma.ui.postMessage({
 		type: 'currentNodeSize',
 		size
