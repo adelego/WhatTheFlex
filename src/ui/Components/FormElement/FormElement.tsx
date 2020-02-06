@@ -3,7 +3,7 @@ import './FormElement.css';
 
 interface Props {
 	labelText: string;
-	labelId: string;
+	labelId?: string;
 }
 
 const FormElement: React.FC<React.PropsWithChildren<Props>> = (props: React.PropsWithChildren<Props>) => {

@@ -19,9 +19,8 @@ import FlexDirectionIcon from './Icons/flexDirection.svg';
 import Button from '../Components/Button/Button';
 import FormElement from '../Components/FormElement/FormElement';
 import Switch from '../Components/Switch/Switch';
-import Column from './Icons/column.svg'
-import Row from './Icons/row.svg'
-
+import Column from './Icons/column.svg';
+import Row from './Icons/row.svg';
 
 interface Props {
 	nbChildren: number;
@@ -86,53 +85,50 @@ const Form: React.FC<Props> = (props: Props) => {
 
 	return (
 		<div className="flexForm">
-			<FormElement labelText="Number of children" labelId="nbChildren">
-				<NumberInput value={props.nbChildren} onChange={props.onNbSquareSelect} icon={<NbChildrenIcon />} />
+			<FormElement labelText="Flex properties" labelId="flexdirection">
+				<div className="formRow">
+					<NumberInput value={props.nbChildren} onChange={props.onNbSquareSelect} icon={<NbChildrenIcon />} />
+					<Switch
+						selectedValue={props.flexProperties.flexDirection}
+						onSelect={onDirectionSelect}
+						options={[
+							{
+								value: 'row',
+								icon: <Row />
+							},
+							{
+								value: 'column',
+								icon: <Column />
+							}
+						]}
+					/>
+				</div>
+				<div className="formRow">
+					<Select
+						options={justifyContentArray}
+						selectedOption={props.flexProperties.justifyContent}
+						onSelect={onJustifyContentSelect}
+						icon={<JustifyContentIcon />}
+					/>
+					<Select
+						options={alignItemArray}
+						selectedOption={props.flexProperties.alignItems}
+						onSelect={onAlignItemsSelect}
+						icon={<AlignItemsIcon />}
+					/>
+				</div>
 			</FormElement>
 
-			<FormElement labelText="Flex direction" labelId="flexdirection">
-				<Switch
-				selectedValue={props.flexProperties.flexDirection}
-				onSelect={onDirectionSelect}
-				options={[
-					{
-						value: 'row',
-						icon: <Row/>
-					},
-					{
-						value: 'column',
-						icon: <Column/>
-					}
-				]}
-				/>
+			<FormElement labelText="Export and Save">
+				<div className="formRow actions">
+					<Button onClick={onCopyButtonClick} disabled={copied} theme="default">
+						{copied ? 'Copied!' : 'Copy CSS'}
+					</Button>
+					<Button onClick={onSaveButtonCLick} theme="primary">
+						Save properties
+					</Button>
+				</div>
 			</FormElement>
-
-			<FormElement labelText="Jusitfy content" labelId="justifyContent">
-				<Select
-					options={justifyContentArray}
-					selectedOption={props.flexProperties.justifyContent}
-					onSelect={onJustifyContentSelect}
-					icon={<JustifyContentIcon />}
-				/>
-			</FormElement>
-
-			<FormElement labelText="Align items" labelId="alignId">
-				<Select
-					options={alignItemArray}
-					selectedOption={props.flexProperties.alignItems}
-					onSelect={onAlignItemsSelect}
-					icon={<AlignItemsIcon />}
-				/>
-			</FormElement>
-
-			<div className="actions">
-				<Button onClick={onCopyButtonClick} disabled={copied} theme="default">
-					{copied ? 'Copied!' : 'Copy CSS'}
-				</Button>
-				<Button onClick={onSaveButtonCLick} theme="primary">
-					Save properties
-				</Button>
-			</div>
 		</div>
 	);
 };
