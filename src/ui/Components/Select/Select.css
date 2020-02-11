@@ -1,93 +1,100 @@
 .selectContainer {
-  position: relative;
-  width: 128px;
+	position: relative;
+	width: 112px;
 }
 
 .selectButton {
-  text-transform: capitalize;
-  font-family: "Inter", sans-serif;
-  border: 1px solid transparent;
-  width: 100%;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  color: rgba(0, 0, 0, 0.8);
-  fill: rgba(0, 0, 0, 0.3);
-  font-size: 11px;
-  line-height: 16px;
-  padding: 0;
-  padding-right: 8px;
+	text-transform: capitalize;
+	font-family: "Inter", sans-serif;
+	border: 1px solid transparent;
+	width: 100%;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	color: rgba(0, 0, 0, 0.8);
+	fill: rgba(0, 0, 0, 0.3);
+	font-size: 11px;
+	line-height: 16px;
+	padding: 0;
+	padding-right: 8px;
+	border-radius: 2px;
 }
 
 .selectButton:hover,
 .selectButton:focus {
-  border-radius: 2px;
-  justify-content: space-between;
-  fill: rgba(0, 0, 0, 0.8);
+	justify-content: space-between;
+	fill: rgba(0, 0, 0, 0.8);
 }
 
 .selectButton:hover {
-  border-color: rgba(0, 0, 0, 0.1);
+	border-color: rgba(0, 0, 0, 0.1);
 }
 
 .selectButton:focus {
-  outline: none;
-  border: 2px solid #18a0fb;
+	outline: none;
+	border: 2px solid #18a0fb;
 }
 
 .selectIconTitle {
-  display: flex;
-  align-items: center;
+	display: flex;
+	align-items: center;
 }
 
 .selectIcon {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  fill: rgba(0, 0, 0, 0.3);
+	width: 32px;
+	height: 32px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	fill: rgba(0, 0, 0, 0.3);
 }
 
 .selectTitle {
-  margin-right: 4px;
+	max-width: calc(100%-12);
+	margin-right: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .selectDropdown {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-height: 100px;
-  overflow-y: scroll;
-  background-color: black;
-  padding: 8px 0;
-  z-index: 1;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-height: 100px;
+	overflow-y: scroll;
+	background-color: black;
+	padding: 8px 0;
+	z-index: 1;
 }
 
 .selectOption {
-  flex-shrink: 0;
-  background: none;
-  border: 0px;
-  text-transform: capitalize;
-  text-align: left;
-  color: white;
-  height: 24px;
-  fill: none;
-  font-size: 12px;
-  line-height: 16px;
+	flex-shrink: 0;
+	background: none;
+	border: 0px;
+	text-transform: capitalize;
+	text-align: left;
+	color: white;
+	height: 24px;
+	fill: none;
+	font-size: 12px;
+	line-height: 16px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .selectOption:hover {
-  background-color: #18a0fb;
+	background-color: #18a0fb;
 }
 
 .selectOption :first-child {
-  margin-right: 4px;
+	margin-right: 4px;
 }
 
 .selected {
-  fill: white;
+	fill: white;
 }

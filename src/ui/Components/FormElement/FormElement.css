@@ -25,3 +25,7 @@
 	align-items: center;
 	margin-bottom: 4px;
 }
+
+.formElement .formRow > :first-child {
+	margin-right: 4px;
+}
